@@ -22,6 +22,7 @@ public class RoomManagerImpl implements RoomManager {
         return solution2(absSortedInAndOut);
     }
 
+    // using a stack
     private static int solution2(List<Integer> absSortedInAndOut) {
         int res = 0;
         final Stack<Integer> s = new Stack<>();
@@ -36,6 +37,7 @@ public class RoomManagerImpl implements RoomManager {
         return res;
     }
 
+    // using a variable
     private static int solution1(final List<Integer> absSortedInAndOut) {
         int res = 0;
         int rooms = 0;
