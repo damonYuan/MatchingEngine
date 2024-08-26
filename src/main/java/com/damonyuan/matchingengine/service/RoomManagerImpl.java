@@ -18,12 +18,38 @@ public class RoomManagerImpl implements RoomManager {
             return 0;
         }
 
-        final List<Integer> absSortedInAndOut = getAbsSortedCombinedList(checkIn, checkOut);
-        return solution2(absSortedInAndOut);
+        return solution3(checkIn, checkOut);
+    }
+
+    // using ranges and brute-force
+    private static int solution3(int[] checkIn, int[] checkOut) {
+        final List<int[]> ranges = new ArrayList<>();
+        for (int i = 0; i < checkIn.length; i++) {
+            ranges.add(new int[] {checkIn[i], checkOut[i]});
+        }
+        ranges.sort(Comparator.comparingInt(a -> a[0]));
+        int start = ranges.get(0)[0];
+        int end = 0;
+        for (int[] range : ranges) {
+            end = Math.max(range[1], end);
+        }
+
+        int res = 0;
+        for (int i = start; i <= end; i++) {
+            int count = 0;
+            for (int[] range : ranges) {
+                if (i >= range[0] && i <= range[1]) {
+                    count++;
+                }
+            }
+            res = Math.max(res, count);
+        }
+        return res;
     }
 
     // using a stack
-    private static int solution2(List<Integer> absSortedInAndOut) {
+    private static int solution2(int[] checkIn, int[] checkOut) {
+        final List<Integer> absSortedInAndOut = getAbsSortedCombinedList(checkIn, checkOut);
         int res = 0;
         final Stack<Integer> s = new Stack<>();
         for (int e : absSortedInAndOut) {
@@ -38,7 +64,8 @@ public class RoomManagerImpl implements RoomManager {
     }
 
     // using a variable
-    private static int solution1(final List<Integer> absSortedInAndOut) {
+    private static int solution1(int[] checkIn, int[] checkOut) {
+        final List<Integer> absSortedInAndOut = getAbsSortedCombinedList(checkIn, checkOut);
         int res = 0;
         int rooms = 0;
         for (int e : absSortedInAndOut) {
