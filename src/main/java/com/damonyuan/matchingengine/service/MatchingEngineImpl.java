@@ -2,7 +2,6 @@ package com.damonyuan.matchingengine.service;
 
 import com.damonyuan.matchingengine.model.Order;
 import com.damonyuan.matchingengine.model.OrderBook;
-import com.damonyuan.matchingengine.model.Side;
 import com.damonyuan.matchingengine.model.Trade;
 
 import java.math.BigDecimal;

@@ -4,8 +4,8 @@ import lombok.Getter;
 
 import java.util.TreeMap;
 
-import static com.damonyuan.matchingengine.util.ComparatorUtils.getOrderKeyComparator;
 import static com.damonyuan.matchingengine.model.Side.BUY;
+import static com.damonyuan.matchingengine.util.ComparatorUtils.getOrderKeyComparator;
 
 public class OrderBookTreeMapImpl implements OrderBook {
 

@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.stream.Collectors;
 
-import static com.damonyuan.matchingengine.util.ComparatorUtils.getOrderComparator;
 import static com.damonyuan.matchingengine.model.Side.BUY;
+import static com.damonyuan.matchingengine.util.ComparatorUtils.getOrderComparator;
 
 public class OrderBookPriorityQueueImpl implements OrderBook {
     @Getter

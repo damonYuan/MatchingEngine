@@ -25,7 +25,7 @@ public class RoomManagerImpl implements RoomManager {
     private static int solution3(int[] checkIn, int[] checkOut) {
         final List<int[]> ranges = new ArrayList<>();
         for (int i = 0; i < checkIn.length; i++) {
-            ranges.add(new int[] {checkIn[i], checkOut[i]});
+            ranges.add(new int[]{checkIn[i], checkOut[i]});
         }
         ranges.sort(Comparator.comparingInt(a -> a[0]));
         int start = ranges.get(0)[0];
