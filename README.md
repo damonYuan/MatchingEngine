@@ -1,6 +1,8 @@
 README
 ====
 
+![](./flowchat.png)
+
 TreeMap (Red-Black Tree) vs Priority Queue (Heap)
 
 TODO: 

@@ -64,7 +64,7 @@ public class MatchingEngineImpl implements MatchingEngine {
                                      final OrderBook makerBook,
                                      final OrderBook anotherBook) {
         final List<Trade> trades = new ArrayList<>();
-        while (true) {
+        while (takerOrder.getQuantity().signum() != 0) {
             final Order makerOrder = makerBook.getFirst();
             if (makerOrder == null || noPriceCross(makerOrder, takerOrder)) {
                 anotherBook.add(takerOrder);
@@ -75,9 +75,6 @@ public class MatchingEngineImpl implements MatchingEngine {
 
             if (makerOrder.getQuantity().signum() == 0) {
                 makerBook.remove(makerOrder);
-            }
-            if (takerOrder.getQuantity().signum() == 0) {
-                break;
             }
         }
         return trades;
